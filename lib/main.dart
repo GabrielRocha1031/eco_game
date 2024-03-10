@@ -7,6 +7,7 @@ import 'package:fluttermoji/fluttermoji.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
+import 'economia_page.dart'; // Importe a página "Economia"
 
 void main() {
   runApp(MyApp());
@@ -71,10 +72,10 @@ class NewPage extends StatelessWidget {
                 padding:
                 const EdgeInsets.symmetric(horizontal: 8.0, vertical: 30),
                 child: FluttermojiCustomizer(
-                  scaffoldWidth: min(600, _width * 0.85),
-                  autosave: false,
-                  theme: FluttermojiThemeData(
-                      boxDecoration: BoxDecoration(boxShadow: [BoxShadow()]))
+                    scaffoldWidth: min(600, _width * 0.85),
+                    autosave: false,
+                    theme: FluttermojiThemeData(
+                        boxDecoration: BoxDecoration(boxShadow: [BoxShadow()]))
                 ),
               ),
             ],
@@ -120,6 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             child: Row(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Espaço uniforme entre os elementos
               children: [
                 Align(
                   alignment: AlignmentDirectional(-1, 1),
@@ -159,10 +161,18 @@ class _MyHomePageState extends State<MyHomePage> {
                               alignment: AlignmentDirectional(-1, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                                child: Icon(
-                                  Icons.eco_outlined,
-                                  color: Colors.white,
-                                  size: 24,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => EconomiaPage()), // Navega para a página "Economia"
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.eco_outlined,
+                                    color: Colors.white,
+                                    size: 24,
+                                  ),
                                 ),
                               ),
                             ),
@@ -214,27 +224,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xFF0E151B),
               ),
               alignment: AlignmentDirectional(0, 0),
+              child: Padding(
+                padding: EdgeInsets.only(top: 8.0), // Espaçamento de 8.0 pixels acima do Row
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+
                 children: [
                   Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Flexible(
-                            child: Align(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EconomiaPage()),
+                        );
+                      },
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
                               alignment: AlignmentDirectional(0, 1),
                               child: Icon(
                                 Icons.electric_bolt,
                                 color: Color(0xFF45BF85),
-                                size: 50,
+                                size: 40,
                               ),
                             ),
-                          ),
-                          Flexible(
-                            child: Align(
+                            Align(
                               alignment: AlignmentDirectional(0, -1),
                               child: Text(
                                 'Economia',
@@ -244,29 +261,33 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Flexible(
-                            child: Align(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                      },
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
                               alignment: AlignmentDirectional(0, 1),
                               child: Icon(
                                 Icons.person,
                                 color: Color(0xFF45BF85),
-                                size: 50,
+                                size: 60,
                               ),
                             ),
-                          ),
-                          Flexible(
-                            child: Align(
+                            Align(
                               alignment: AlignmentDirectional(0, -1),
                               child: Text(
                                 'Avatar',
@@ -276,29 +297,33 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Flexible(
-                            child: Align(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EconomiaPage()),
+                        );
+                      },
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
                               alignment: AlignmentDirectional(0, 1),
                               child: Icon(
                                 Icons.shopping_cart,
                                 color: Color(0xFF45BF85),
-                                size: 50,
+                                size: 40,
                               ),
                             ),
-                          ),
-                          Flexible(
-                            child: Align(
+                            Align(
                               alignment: AlignmentDirectional(0, -1),
                               child: Text(
                                 'Loja',
@@ -308,12 +333,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
+              ),
               ),
             ),
           ),
@@ -410,4 +436,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
