@@ -1,12 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fluttermoji/fluttermoji.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
 import 'economia_page.dart'; // Importe a página "Economia"
 
 void main() {
@@ -14,7 +8,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -75,8 +68,7 @@ class NewPage extends StatelessWidget {
                     scaffoldWidth: min(600, _width * 0.85),
                     autosave: false,
                     theme: FluttermojiThemeData(
-                        boxDecoration: BoxDecoration(boxShadow: [BoxShadow()]))
-                ),
+                        boxDecoration: BoxDecoration(boxShadow: [BoxShadow()]))),
               ),
             ],
           ),
@@ -85,7 +77,6 @@ class NewPage extends StatelessWidget {
     );
   }
 }
-
 
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -118,10 +109,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xFF0E151B),
               ),
             ),
-
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Espaço uniforme entre os elementos
+              mainAxisAlignment:
+              MainAxisAlignment.spaceEvenly, // Espaço uniforme entre os elementos
               children: [
                 Align(
                   alignment: AlignmentDirectional(-1, 1),
@@ -160,12 +151,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             Align(
                               alignment: AlignmentDirectional(-1, 0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => EconomiaPage()), // Navega para a página "Economia"
+                                      MaterialPageRoute(
+                                          builder: (context) => EconomiaPage()),
                                     );
                                   },
                                   child: Icon(
@@ -180,7 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Align(
                                 alignment: AlignmentDirectional(1, 0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                                  padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                                   child: Text(
                                     '0',
                                     style: TextStyle(
@@ -226,175 +220,122 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: AlignmentDirectional(0, 0),
               child: Padding(
                 padding: EdgeInsets.only(top: 8.0), // Espaçamento de 8.0 pixels acima do Row
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-
-                children: [
-                  Flexible(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => EconomiaPage()),
-                        );
-                      },
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, 1),
-                              child: Icon(
-                                Icons.electric_bolt,
-                                color: Color(0xFF45BF85),
-                                size: 40,
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Text(
-                                'Economia',
-                                style: TextStyle(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF8A8A8A),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => EconomiaPage()),
+                          );
+                        },
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0, 1),
+                                child: Icon(
+                                  Icons.electric_bolt,
+                                  color: Color(0xFF45BF85),
+                                  size: 40,
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: AlignmentDirectional(0, -1),
+                                child: Text(
+                                  'Economia',
+                                  style: TextStyle(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF8A8A8A),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Flexible(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyApp()),
-                        );
-                      },
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, 1),
-                              child: Icon(
-                                Icons.person,
-                                color: Color(0xFF45BF85),
-                                size: 60,
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Text(
-                                'Avatar',
-                                style: TextStyle(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF8A8A8A),
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyApp()),
+                          );
+                        },
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0, 1),
+                                child: Icon(
+                                  Icons.person,
+                                  color: Color(0xFF45BF85),
+                                  size: 60,
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: AlignmentDirectional(0, -1),
+                                child: Text(
+                                  'Avatar',
+                                  style: TextStyle(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF8A8A8A),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Flexible(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => EconomiaPage()),
-                        );
-                      },
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, 1),
-                              child: Icon(
-                                Icons.shopping_cart,
-                                color: Color(0xFF45BF85),
-                                size: 40,
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Text(
-                                'Loja',
-                                style: TextStyle(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF8A8A8A),
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => EconomiaPage()),
+                          );
+                        },
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0, 1),
+                                child: Icon(
+                                  Icons.shopping_cart,
+                                  color: Color(0xFF45BF85),
+                                  size: 40,
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: AlignmentDirectional(0, -1),
+                                child: Text(
+                                  'Loja',
+                                  style: TextStyle(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF8A8A8A),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              ),
-            ),
-          ),
-
-          /*Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              "Crie seu boneco",
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          FluttermojiCircleAvatar(
-            backgroundColor: Colors.blue[200],
-            radius: 100,
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "SHOOW",
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              Spacer(flex: 2),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  height: 35,
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.edit),
-                    label: Text("Customize"),
-                    onPressed: () => Navigator.push(context,
-                        new MaterialPageRoute(builder: (context) => NewPage())),
-                  ),
+                  ],
                 ),
               ),
-              Spacer(flex: 2),
-            ],
+            ),
           ),
-          SizedBox(
-            height: 100,
-          ),
-           */
         ],
       ),
       drawer: Drawer(
@@ -422,7 +363,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => NewPage()),
                 );
               },
-
             ),
             ListTile(
               title: Text('Item 2'),

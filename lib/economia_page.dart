@@ -11,9 +11,9 @@ class EconomiaPage extends StatefulWidget {
 
 class _EconomiaPageWidgetState extends State<EconomiaPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    var _width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: _scaffoldKey, // Defina o GlobalKey para o Scaffold
       appBar: AppBar(
@@ -22,7 +22,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
           icon: Icon(Icons.menu),
           color: Color(0xFF45BF85),
           onPressed: () {
-
+            _scaffoldKey.currentState!.openDrawer(); // Abre o menu lateral
           },
         ),
       ),
@@ -74,8 +74,8 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
                             Align(
                               alignment: AlignmentDirectional(-1, 0),
                               child: Padding(
-                                padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 0, 0, 0),
                                 child: Icon(
                                   Icons.eco_outlined,
                                   color: Colors.green,
@@ -254,16 +254,16 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
             alignment: AlignmentDirectional(0, 0),
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               decoration: BoxDecoration(
                 color: Color(0xFF0E151B),
               ),
               alignment: AlignmentDirectional(0, 0),
               child: Padding(
-                padding: EdgeInsets.only(top: 8.0), // Espaçamento de 8.0 pixels acima do Row
+                padding: EdgeInsets.only(
+                    top: 8.0), // Espaçamento de 8.0 pixels acima do Row
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-
                   children: [
                     Flexible(
                       child: GestureDetector(
@@ -378,7 +378,6 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
               ),
             ),
           ),
-
         ],
       ),
       drawer: Drawer(
@@ -406,7 +405,6 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
                   MaterialPageRoute(builder: (context) => NewPage()),
                 );
               },
-
             ),
             ListTile(
               title: Text('Item 2'),
