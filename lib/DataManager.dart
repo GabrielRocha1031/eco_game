@@ -14,11 +14,11 @@ class DataManager {
   }
 
   Future<void> addEconomyData(double monthlyEconomy, double totalEconomy) async {
-    await _databaseHelper.updateEconomy(monthlyEconomy, totalEconomy);
+    await _databaseHelper.insertEconomy(monthlyEconomy, totalEconomy);
   }
 
   Future<void> addEconomyValues() async {
-    await addEconomyData(130.0, 200.0);
+    await addEconomyData(15.0, 280.0);
     print('Valores de economia adicionados com sucesso!');
   }
 

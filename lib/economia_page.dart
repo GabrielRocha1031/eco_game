@@ -14,6 +14,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   late double _monthlyEconomy = 0.0;
   late double _totalEconomy = 0.0;
+  late double _totalCoins = 0.0;
   late final DatabaseHelper _databaseHelper;
 
   @override
@@ -26,10 +27,12 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
   Future<void> _fetchEconomyValues() async {
     final monthlyEconomy = await _databaseHelper.getMonthlyEconomy();
     final totalEconomy = await _databaseHelper.getTotalEconomy();
+    final totalCoins = await _databaseHelper.getCoins();
 
     setState(() {
       _monthlyEconomy = monthlyEconomy;
       _totalEconomy = totalEconomy;
+      _totalCoins = totalCoins;
     });
   }
 
@@ -111,7 +114,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
                                   child: Text(
-                                    '0',
+                                    '$_totalCoins',
                                     style: TextStyle(
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
