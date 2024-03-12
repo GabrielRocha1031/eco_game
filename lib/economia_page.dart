@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'main.dart';
 import 'database_helper.dart'; // Importe o DatabaseHelper
+import 'main.dart';
 
 class EconomiaPage extends StatefulWidget {
   const EconomiaPage({Key? key}) : super(key: key);
@@ -12,18 +12,38 @@ class EconomiaPage extends StatefulWidget {
 
 class _EconomiaPageWidgetState extends State<EconomiaPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  late double _monthlyEconomy = 0.0;
+  late double _totalEconomy = 0.0;
+  late final DatabaseHelper _databaseHelper;
+
+  @override
+  void initState() {
+    super.initState();
+    _databaseHelper = DatabaseHelper(); // Inicialize a instância de DatabaseHelper
+    _fetchEconomyValues();
+  }
+
+  Future<void> _fetchEconomyValues() async {
+    final monthlyEconomy = await _databaseHelper.getMonthlyEconomy();
+    final totalEconomy = await _databaseHelper.getTotalEconomy();
+
+    setState(() {
+      _monthlyEconomy = monthlyEconomy;
+      _totalEconomy = totalEconomy;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey, // Defina o GlobalKey para o Scaffold
+      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Color(0xFF0E151B),
         leading: IconButton(
           icon: Icon(Icons.menu),
           color: Color(0xFF45BF85),
           onPressed: () {
-            _scaffoldKey.currentState!.openDrawer(); // Abre o menu lateral
+            _scaffoldKey.currentState!.openDrawer();
           },
         ),
       ),
@@ -153,15 +173,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
                         ),
                       ),
                       Text(
-                        'Economia no mês:',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          fontSize: 28,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        '0KW',
+                        'Economia no mês: $_monthlyEconomy KW', // Use o valor do banco de dados aqui
                         style: TextStyle(
                           fontFamily: 'Readex Pro',
                           fontSize: 32,
@@ -230,15 +242,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
                         ),
                       ),
                       Text(
-                        'Economia total:',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        '0KW',
+                        'Economia total: $_totalEconomy KW', // Use o valor do banco de dados aqui
                         style: TextStyle(
                           fontFamily: 'Readex Pro',
                           fontSize: 24,
@@ -400,7 +404,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
             ListTile(
               title: Text('Modificar aparência'),
               onTap: () {
-                Navigator.pop(context); // Fecha o menu lateral
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewPage()),
@@ -410,7 +414,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
             ListTile(
               title: Text('Item 2'),
               onTap: () {
-                Navigator.pop(context); // Fecha o menu lateral
+                Navigator.pop(context);
               },
             ),
           ],

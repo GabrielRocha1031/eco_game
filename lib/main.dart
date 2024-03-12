@@ -2,9 +2,19 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fluttermoji/fluttermoji.dart';
 import 'economia_page.dart'; // Importe a página "Economia"
+import 'DataManager.dart';
+import 'database_helper.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Abra o banco de dados antes de executar qualquer outra coisa
+  DatabaseHelper().open().then((_) {
+    // Depois que o banco de dados estiver aberto, execute o restante do aplicativo
+    final dataManager = DataManager();
+    dataManager.addEconomyValues();
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
