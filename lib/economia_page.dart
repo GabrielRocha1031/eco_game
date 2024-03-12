@@ -386,7 +386,7 @@ class _EconomiaPageWidgetState extends State<EconomiaPage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xFF0E151B),
               ),
               child: Text(
                 'Eco Game',
